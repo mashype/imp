@@ -1,0 +1,18 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: imp_development
+  pool: 5
+  username: mashype
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: imp_test
+  pool: 5
+  username: mashype
+  password:
+
+
+
