@@ -1,0 +1,25 @@
+.main_content
+	#provider_top.row
+		.col-md-4
+			IMG
+		.col-md-8
+			#provider_info
+				%h1= @provider.org_name
+	.row
+		.col-md-6
+			#tasks
+				%h2 Tasks
+				%ul
+					- @provider.tasks.each do |task|
+						%li= task.title
+		.col-md-6
+			#contacts
+				%h2 Contacts
+				%ul
+					- @provider.contacts.each do |contact|
+						%li= contact.last_name
+	.row
+		.col-md-12
+			= link_to 'Edit', edit_provider_path(@provider), class: "btn btn-default"
+			= link_to 'Back', root_path, class: "btn btn-default"
+			= link_to 'Destroy', @provider, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"

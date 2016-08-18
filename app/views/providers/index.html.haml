@@ -1,0 +1,13 @@
+%h1 All Providers
+
+%table
+  %thead
+    %tr
+      %th Org name
+      %th{:colspan => "3"}
+  %tbody
+    - @providers.each do |provider|
+      %tr
+        %td= link_to provider.org_name, provider
+%br/
+= link_to 'New Provider', new_provider_path
