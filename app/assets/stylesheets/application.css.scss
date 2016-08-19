@@ -97,7 +97,7 @@ body {
 #provider_info, #tasks, #contacts {
 	background: white;
 	@include box-shadow;
-	min-height: 360px;
+	min-height: 240px;
 	border-radius: 5px;
 	padding: 2em 8%;
 }
@@ -129,6 +129,13 @@ body {
 			border-bottom: 1px solid #EAEAEA;
 		}
 	}
+}
+
+#task_info {
+	background: white;
+	@include box-shadow;
+	border-radius: 5px;
+	padding: 1em 4%;
 }
 
 .form-inline {
