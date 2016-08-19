@@ -12,6 +12,10 @@
 				%ul
 					- @provider.tasks.each do |task|
 						%li= task.title
+						%li= task.user_id
+
+				= link_to "Add Task", new_provider_task_path(@provider), class: "btn btn-danger"
+
 		.col-md-6
 			#contacts
 				%h2 Contacts

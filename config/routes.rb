@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :providers
+  devise_for :users
+  resources :providers do
+    resources :tasks, except: [:index]
+  end
 
   root 'providers#index'
-
 
 end

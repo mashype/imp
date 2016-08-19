@@ -1,5 +1,6 @@
 class ProvidersController < ApplicationController
   before_action :find_provider, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @providers = Provider.all
@@ -55,7 +56,7 @@ class ProvidersController < ApplicationController
     end
 
     def provider_params
-      params.require(:provider).permit(:org_name, tasks_attributes: [:id, :title, :_destroy], 
+      params.require(:provider).permit(:org_name, tasks_attributes: [:id, :title, :user_id, :_destroy], 
         contacts_attributes: [:id, :first_name, :last_name, :title, :_destroy])
     end
 end
