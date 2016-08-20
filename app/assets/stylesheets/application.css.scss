@@ -97,7 +97,7 @@ body {
 #provider_info, #tasks, #contacts {
 	background: white;
 	@include box-shadow;
-	min-height: 240px;
+	min-height: 100px;
 	border-radius: 5px;
 	padding: 2em 8%;
 }

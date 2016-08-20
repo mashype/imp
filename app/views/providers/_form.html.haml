@@ -12,6 +12,15 @@
     = f.input :org_name, input_html: { class: 'form-control' }
 
     .row
+      .col-md-12
+        %h3 Locations
+        #tasks
+          = f.simple_fields_for :locations do |location|
+            = render 'location_fields', f: location
+          .links
+            = link_to_add_association 'Add Location', f, :locations, class: "btn btn-default add-button"
+
+    .row
       .col-md-6
         %h3 Tasks
         #tasks

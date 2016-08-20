@@ -1,28 +1,64 @@
 .main_content
 	#provider_top.row
-		.col-md-4
-			IMG
-		.col-md-8
+		.col-md-12
 			#provider_info
 				%h1= @provider.org_name
-	.row
-		.col-md-6
-			#tasks
-				%h2 Tasks
-				%ul
-					- @provider.tasks.each do |task|
-						%li= link_to task.title, provider_task_url(@provider, task)
 
-				= link_to "Add Task", new_provider_task_path(@provider), class: "btn btn-danger"
-
-		.col-md-6
-			#contacts
-				%h2 Contacts
-				%ul
-					- @provider.contacts.each do |contact|
-						%li= contact.last_name
+	%h2 Locations
 	.row
 		.col-md-12
+			%table.table.table-hover
+				%thead-inverse
+					%th Add 1
+					%th Add 2
+					%th City
+					%th State
+					%th Zip
+				%tbody
+					- @provider.locations.each do |location|
+						%td= location.add_1
+						%td= location.add_2
+						%td= location.city
+						%td= location.state
+						%td= location.zip
+
+	%h2 Tasks
+	.row
+		.col-md-12
+			%table.table.table-hover
+				%thead
+					%th View
+					%th Task Name
+					%th Owner
+					%th Create Date
+					%th{:colspan => "4"}
+
+				%tbody
+					- @provider.tasks.each do |task|
+						%td= link_to "View", provider_task_url(@provider, task)
+						%td= task.title
+						%td= task.user_id
+						%td= task.created_at
+
+	%h2 Contacts
+	.row
+		.col-md-12
+			%table.table.table-hover
+				%thead
+					%th View
+					%th First Name
+					%th Last Name
+					%th Title
+				%tbody
+					- @provider.contacts.each do |contact|
+						%td= link_to "HOLD"
+						%td= contact.first_name
+						%td= contact.last_name
+						%td= contact.title
+
+	.row
+		.col-md-12
+			= link_to "Add Task", new_provider_task_path(@provider), class: "btn btn-default"
 			= link_to 'Edit', edit_provider_path(@provider), class: "btn btn-default"
 			= link_to 'Back', root_path, class: "btn btn-default"
 			= link_to 'Destroy', @provider, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"

@@ -22,7 +22,6 @@ class TasksController < ApplicationController
     @task.user_id = current_user.id
     @task.provider_id = @provider.id
 
-
     respond_to do |format|
       if @task.save
         format.html { redirect_to @provider, notice: 'Provider was successfully created.' }

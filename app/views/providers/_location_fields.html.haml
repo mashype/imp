@@ -1,0 +1,7 @@
+.form-inline.clearfix
+	.nested-fields
+		= f.input :add_1, input_html: { class: "form-input" "form-control" }
+		= f.input :city, input_html: { class: "form-input" "form-control" }
+		= f.input :state, input_html: { class: "form-input" "form-control" }
+		= f.input :zip, input_html: { class: "form-input" "form-control" }		
+		= link_to_remove_association "Remove", f, class: "form-button btn btn-default"

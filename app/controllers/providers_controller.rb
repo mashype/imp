@@ -57,6 +57,7 @@ class ProvidersController < ApplicationController
 
     def provider_params
       params.require(:provider).permit(:org_name, tasks_attributes: [:id, :title, :user_id, :_destroy], 
-        contacts_attributes: [:id, :first_name, :last_name, :title, :_destroy])
+        contacts_attributes: [:id, :first_name, :last_name, :title, :_destroy],
+        locations_attributes: [:id, :add_1, :add_2, :city, :state, :zip, :_destropy])
     end
 end

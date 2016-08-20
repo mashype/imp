@@ -1,17 +1,27 @@
 .main_content
 	.row
-		.col-md-12
+		.col-md-6
 			#task_info
 				%h1= @task.title
+		.col-md-6
+			#task_info
+				%h1= @task.provider.org_name
+	%br
 	.row
 		.col-md-12
-			#notes
-				%h2 Notes
-				%ul
+			%table.table.table-striped
+				%thead
+					%th Title
+				%tbody
 					- @task.notes.each do |note|
-						%li= note.content
+						%tr
+							%td= note.content
+							%td= note.user.email
+							%td= note.created_at
 
-				= link_to "Add Note", new_task_note_path(@task), class: "btn btn-default"
+	
+	= link_to "Add Note", new_task_note_path(@task), class: "btn btn-default"
+	= link_to "Edit Task", edit_provider_task_path(@provider, @task), class: "btn btn-default"
 
 /	.row
 /		.col-md-12
