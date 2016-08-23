@@ -14,5 +14,11 @@ test:
   username: mashype
   password:
 
+production:
+  database: <%= ENV["DATABASE_NAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  host: ec2-54-235-182-120.compute-1.amazonaws.com
+
 
 

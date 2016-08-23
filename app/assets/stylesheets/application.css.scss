@@ -94,30 +94,19 @@ body {
 	margin-bottom: 50px;
 }
 
+#provider_locations, #provider_tasks, #provider_contacts {
+	background: white;
+	@include box-shadow;
+	border-radius: 5px;
+	padding: 2em 8%;
+}
+
 #provider_info, #tasks, #contacts {
 	background: white;
 	@include box-shadow;
 	min-height: 100px;
 	border-radius: 5px;
 	padding: 2em 8%;
-}
-
-.provider_image {
-	max-width: 100%;
-	border-radius: 5px;
-	@include box-shadow;
-}
-
-#recipe_info {
-	h1 {
-		font-size: 36px;
-		font-weight: normal;
-		color: $red;
-	}
-	.description {
-		color: #8A8A8A;
-		font-size: 20px;
-	}
 }
 
 #tasks, #contacts {

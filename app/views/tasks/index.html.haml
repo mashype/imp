@@ -5,13 +5,15 @@
 		%tr
 			%th Task Title
 			%th Provider name	
+			%th Priority
 			%th User					
-			%th Create Date
+			%th Due Date
 			%th{:colspan => "4"}
 	%tbody
 		- @tasks.each do |task|
 			%tr
 				%td= link_to task.title, provider_task_url(task.provider, task)
 				%td= link_to task.provider.org_name, task.provider
+				%td= task.priority
 				%td= task.user.email
-				%td= localize(task.created_at, :format => :short)
+				%td= localize(task.due_date, :format => :short)

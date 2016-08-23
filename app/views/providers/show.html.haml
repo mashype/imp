@@ -5,7 +5,7 @@
 				%h1= @provider.org_name
 
 	%h2 Locations
-	.row
+	#provider_locations.row
 		.col-md-12
 			%table.table.table-hover
 				%thead-inverse
@@ -23,7 +23,7 @@
 						%td= location.zip
 
 	%h2 Tasks
-	.row
+	#provider_tasks.row
 		.col-md-12
 			%table.table.table-hover
 				%thead
@@ -41,7 +41,7 @@
 						%td= task.created_at
 
 	%h2 Contacts
-	.row
+	#provider_contacts.row
 		.col-md-12
 			%table.table.table-hover
 				%thead

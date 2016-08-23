@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820040209) do
+ActiveRecord::Schema.define(version: 20160822175254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,9 +59,12 @@ ActiveRecord::Schema.define(version: 20160820040209) do
   create_table "tasks", force: :cascade do |t|
     t.string   "title"
     t.integer  "provider_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "user_id"
+    t.integer  "priority"
+    t.boolean  "active",      default: true
+    t.date     "due_date"
   end
 
   add_index "tasks", ["provider_id"], name: "index_tasks_on_provider_id", using: :btree
