@@ -11,7 +11,9 @@
 
   .panel-body
     = f.input :title, input_html: { class: 'form-control' }
-    = f.input :due_date, as: :string, input_html: {type: :date}
+
+    = f.input :due_date, as: :bootstrap_datepicker
+
     = f.input :priority, input_html: { class: 'form-control' }
 
 
