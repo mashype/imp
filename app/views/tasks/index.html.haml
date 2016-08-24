@@ -1,19 +1,19 @@
-%h1 Task List
-
-%table.table.table-striped
-	%thead
-		%tr
-			%th Task Title
-			%th Provider name	
-			%th Priority
-			%th User					
-			%th Due Date
-			%th{:colspan => "4"}
-	%tbody
-		- @tasks.each do |task|
+%h1 User Task List
+#task_list	
+	%table.table.table-striped
+		%thead
 			%tr
-				%td= link_to task.title, provider_task_url(task.provider, task)
-				%td= link_to task.provider.org_name, task.provider
-				%td= task.priority
-				%td= task.user.email
-				%td= localize(task.due_date, :format => :short)
+				%th Provider Name
+				%th Task Name	
+				%th Priority
+				%th Due Date					
+				%th User
+				%th{:colspan => "4"}
+		%tbody
+			- @tasks.each do |task|
+				%tr
+					%td= link_to task.provider.org_name, task.provider
+					%td= link_to task.title, provider_task_url(task.provider, task)
+					%td= task.priority
+					%td= localize(task.due_date, :format => :short)
+					%td= task.user.email

@@ -30,7 +30,7 @@ body {
 }
 
 .main_content {
-	padding: 0 0 50px 0;
+	padding: 0 0 25px 0;
 }
 
 .alert {
@@ -107,6 +107,13 @@ body {
 	min-height: 100px;
 	border-radius: 5px;
 	padding: 2em 8%;
+}
+
+#task_list {
+	background: white;
+	@include box-shadow;
+	border-radius: 5px;
+	padding: 1em 4%;
 }
 
 #tasks, #contacts {

@@ -2,7 +2,9 @@
 	.row
 		.col-md-6
 			#task_info
-				%h1= @task.title
+				%p= @task.title
+				%p= @task.due_date
+				%p= @task.priority
 		.col-md-6
 			#task_info
 				%h1= @task.provider.org_name
