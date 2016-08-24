@@ -24,6 +24,7 @@
 	
 	= link_to "Add Note", new_task_note_path(@task), class: "btn btn-default"
 	= link_to "Edit Task", edit_provider_task_path(@provider, @task), class: "btn btn-default"
+	= link_to 'Destroy', @task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
 
 /	.row
 /		.col-md-12
