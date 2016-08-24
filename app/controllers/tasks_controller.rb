@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 	before_action :find_task, only: [:show, :edit, :update, :destroy]
-  before_action :find_provider, only: [:show, :edit, :update, :destroy]
+  before_action :find_provider, except: [:index]
   before_action :authenticate_user!	  
 
   def index
@@ -63,7 +63,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:title, :user_id, :due_date, :priority, :_destroy, 
+      params.require(:task).permit(:title, :user_id, :provider_id, :due_date, :priority, :active, :_destroy, 
         notes_attributes: [:id, :content, :user_id, :provider_id, :_destroy])
     end
 end
