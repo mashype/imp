@@ -14,6 +14,7 @@
 					%th City
 					%th State
 					%th Zip
+					%th Edit
 				%tbody
 					- @provider.locations.each do |location|
 						%td= location.add_1
@@ -21,6 +22,8 @@
 						%td= location.city
 						%td= location.state
 						%td= location.zip
+						%td= link_to 'Edit', edit_provider_location_path(location.provider, location), class: "btn btn-default" 
+
 
 	%h2 Tasks
 	#provider_tasks.row
@@ -31,7 +34,8 @@
 						%th View
 						%th Task Name
 						%th Owner
-						%th Create Date
+						%th Priority
+						%th Due Date
 						%th{:colspan => "4"}
 
 				%tbody
@@ -39,7 +43,8 @@
 						%tr
 							%td= link_to "View", provider_task_url(@provider, task)
 							%td= task.title
-							%td= task.user_id
+							%td= task.user.email
+							%td= task.priority
 							%td= task.due_date
 
 
@@ -53,6 +58,7 @@
 						%th First Name
 						%th Last Name
 						%th Title
+						%th Edit
 				%tbody
 					- @provider.contacts.each do |contact|
 						%tr
@@ -60,6 +66,7 @@
 							%td= contact.first_name
 							%td= contact.last_name
 							%td= contact.title
+							%td= link_to 'Edit', edit_provider_contact_path(contact.provider, contact), class: "btn btn-default" 
 
 	.row
 		.col-md-12
