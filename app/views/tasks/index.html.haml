@@ -17,3 +17,6 @@
 					%td= task.priority.priority
 					%td= localize(task.due_date, :format => :short)
 					%td= task.user.email
+					%td= link_to 'Edit', edit_provider_task_path(task.provider, task), class: "btn btn-default" 
+
+

@@ -3,7 +3,7 @@ class ProvidersController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @providers = Provider.all
+    @providers = Provider.order ("org_name")
   end
 
   def show

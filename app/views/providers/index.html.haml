@@ -1,4 +1,4 @@
-%h1 All Providers
+%h1 All Loaded Providers
 
 %table.table.table-striped
   %thead
@@ -10,5 +10,5 @@
       %tr
         %td= link_to provider.org_name, provider
 %br/
-= link_to 'New Provider', new_provider_path
+= link_to 'Add New Provider', new_provider_path, class: "btn btn-default" 
 
