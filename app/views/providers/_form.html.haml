@@ -24,10 +24,15 @@
       .col-md-6
         %h3 Tasks
         #tasks
-          = f.simple_fields_for :tasks do |task|
-            = render 'task_fields', f: task
-          .links
-            = link_to_add_association 'Add Task', f, :tasks, class: "btn btn-default add-button"
+          .row
+            .col-xs-8
+              %h4 Task Title
+            .col-xs-2
+              %h4 User
+            = f.simple_fields_for :tasks do |task|
+              = render 'task_fields', f: task
+            .links
+              = link_to_add_association 'Add Task', f, :tasks, class: "btn btn-default add-button"
 
       .col-md-6
         %h3 Contacts

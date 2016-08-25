@@ -1,4 +1,9 @@
-.form-inline.clearfix
-	.nested-fields
-		= f.input :title, input_html: { class: "form-input" "form-control" }
-		= link_to_remove_association "Remove", f, class: "form-button btn btn-default"
+
+.nested-fields
+	.row
+		.col-xs-8
+			= f.input :title, label: false, placeholder: "Title", input_html: { class: "form-input" "form-control" }
+		.col-xs-2
+			= f.input :user_id, label: false, input_html: { class: "form-input" "form-control" }
+		.col-xs-2
+			= link_to_remove_association "Remove", f, class: "btn btn-default"
