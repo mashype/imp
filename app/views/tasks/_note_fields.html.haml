@@ -1,10 +1,10 @@
-.form-inline.clearfix
-	.nested-fields
-		.row
-			.col-xs-8
-				= f.input :content, input_html: { class: "form-control" }
-			.col-xs-2
-				= f.input :user_id, input_html: { class: 'form-control' }
-			.com-xs-2
-				= link_to_remove_association "Remove", f, class: "form-button btn btn-default"
+.nested-fields
+	.row
+		.col-xs-8
+			= f.input :content, label: false, placeholder: "Enter Note Here", input_html: { class: "form-control" }
+		.col-xs-2
+			=f.association :user, label: false, placeholder: "Assigned User", label_method: :email, value_method: :id, include_blank: true, :input_html => {:class => "input-small"}
+		.col-xs-2
+			= link_to_remove_association "Remove", f, class: "form-button btn btn-default"
 
+        

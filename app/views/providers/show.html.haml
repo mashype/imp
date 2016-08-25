@@ -31,17 +31,19 @@
 			%table.table.table-hover
 				%thead
 					%tr
-						%th View
+						%th 
+						%th
 						%th Task Name
 						%th Owner
 						%th Priority
 						%th Due Date
-						%th{:colspan => "4"}
+						%th{:colspan => "6"}
 
 				%tbody
 					- @provider.tasks.each do |task|
 						%tr
-							%td= link_to "View", provider_task_url(@provider, task)
+							%td= link_to "View", provider_task_url(@provider, task), class: "btn btn-default" 
+							%td= link_to 'Edit', edit_provider_task_path(task.provider, task), class: "btn btn-default" 
 							%td= task.title
 							%td= task.user.email
 							%td= task.priority.priority
