@@ -64,6 +64,6 @@ class TasksController < ApplicationController
 
     def task_params
       params.require(:task).permit(:title, :user_id, :provider_id, :due_date, :priority, :active, :_destroy, 
-        notes_attributes: [:id, :content, :user_id, :provider_id, :_destroy])
+        notes_attributes: [:id, :content, :user_id, :_destroy])
     end
 end
