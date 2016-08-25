@@ -14,6 +14,6 @@
 				%tr
 					%td= link_to task.provider.org_name, task.provider
 					%td= link_to task.title, provider_task_url(task.provider, task)
-					%td= task.priority
+					%td= task.priority.priority
 					%td= localize(task.due_date, :format => :short)
 					%td= task.user.email

@@ -12,7 +12,7 @@
   .panel-body
     = f.input :title, input_html: { class: 'form-control' }
     = f.input :due_date, as: :string, input_html: {type: :date}
-    = f.input :priority, input_html: { class: 'form-control' }
+    =f.association :priority, label_method: :priority, value_method: :id, include_blank: false, :input_html => {:class => "input-small"}, label: false
 
   .col-md-6
   %h3 Notes

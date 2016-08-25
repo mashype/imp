@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :priorities
   resources :locations
   authenticated :user do
   	root 'tasks#index', as: "authenticated_root"

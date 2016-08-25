@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822175254) do
+ActiveRecord::Schema.define(version: 20160825195110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,12 @@ ActiveRecord::Schema.define(version: 20160822175254) do
 
   add_index "notes", ["task_id"], name: "index_notes_on_task_id", using: :btree
 
+  create_table "priorities", force: :cascade do |t|
+    t.string   "priority"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "providers", force: :cascade do |t|
     t.string   "org_name"
     t.datetime "created_at", null: false
@@ -62,11 +68,12 @@ ActiveRecord::Schema.define(version: 20160822175254) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "user_id"
-    t.integer  "priority"
     t.boolean  "active",      default: true
     t.date     "due_date"
+    t.integer  "priority_id"
   end
 
+  add_index "tasks", ["priority_id"], name: "index_tasks_on_priority_id", using: :btree
   add_index "tasks", ["provider_id"], name: "index_tasks_on_provider_id", using: :btree
 
   create_table "users", force: :cascade do |t|
