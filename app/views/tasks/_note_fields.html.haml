@@ -1,4 +1,7 @@
 .form-inline.clearfix
 	.nested-fields
-		= f.input :content, input_html: { class: "form-input" "form-control" }
-		= link_to_remove_association "Remove", f, class: "form-button btn btn-default"
+		%table.table.table-hover
+			%tr
+				%td= f.input :content, input_html: { class: "form-control" }
+				%td= f.input :user_id, input_html: { class: 'form-control' }
+				%td= link_to_remove_association "Remove", f, class: "form-button btn btn-default"
