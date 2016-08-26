@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   before_action :authenticate_user!	  
 
   def index
-    @tasks = Task.order ("due_date")
+    @tasks = Task.order(due_date: :asc, priority_id: :asc)
   end
 
   def show
