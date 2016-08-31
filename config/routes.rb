@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :dispositions
   resources :priorities
   resources :locations
   authenticated :user do

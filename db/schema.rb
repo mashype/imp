@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825195110) do
+ActiveRecord::Schema.define(version: 20160831145033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20160825195110) do
   end
 
   add_index "contacts", ["provider_id"], name: "index_contacts_on_provider_id", using: :btree
+
+  create_table "dispositions", force: :cascade do |t|
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string   "add_1"
@@ -65,14 +71,16 @@ ActiveRecord::Schema.define(version: 20160825195110) do
   create_table "tasks", force: :cascade do |t|
     t.string   "title"
     t.integer  "provider_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "user_id"
-    t.boolean  "active",      default: true
+    t.boolean  "active",         default: true
     t.date     "due_date"
     t.integer  "priority_id"
+    t.integer  "disposition_id"
   end
 
+  add_index "tasks", ["disposition_id"], name: "index_tasks_on_disposition_id", using: :btree
   add_index "tasks", ["priority_id"], name: "index_tasks_on_priority_id", using: :btree
   add_index "tasks", ["provider_id"], name: "index_tasks_on_provider_id", using: :btree
 
