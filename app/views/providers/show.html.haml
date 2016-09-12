@@ -36,6 +36,7 @@
 						%th Task Name
 						%th Owner
 						%th Priority
+						%th Status
 						%th Due Date
 						%th{:colspan => "6"}
 
@@ -47,6 +48,7 @@
 							%td= task.title
 							%td= task.user.email
 							%td= task.priority.priority
+							%td= task.disposition.status
 							%td= task.due_date
 
 
