@@ -15,7 +15,8 @@
 				%thead
 					%th Title
 				%tbody
-					- @task.notes.each do |note|
+					- @task.notes.order("created_at desc").each do |note|
+
 						%tr
 							%td= note.content
 							%td= note.user.email
