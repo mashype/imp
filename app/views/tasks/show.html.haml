@@ -1,0 +1,30 @@
+.main_content
+	.row
+		.col-md-6
+			#task_info
+				%p= @task.title
+				%p= @task.due_date
+				%p= @task.priority.priority
+		.col-md-6
+			#task_info
+				%h1= @task.provider.org_name
+				
+	%br
+	.row
+		.col-md-12
+			%table.table.table-striped
+				%thead
+					%th Title
+				%tbody
+					- @task.notes.order("created_at desc").each do |note|
+
+						%tr
+							%td= note.content
+							%td= note.user.email
+							%td= note.created_at.strftime("%b. %d, %Y")
+							%td= link_to 'Destroy', @task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+
+	
+	= link_to "Add Note", new_task_note_path(@task), class: "btn btn-default"
+	= link_to "Edit Task", edit_provider_task_path(@provider, @task), class: "btn btn-default"
+	= link_to 'Destroy', @task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"

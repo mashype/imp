@@ -1,0 +1,42 @@
+= simple_form_for @sponsor, html: { multipart: true } do |f|
+
+  - if @sponsor.errors.any?
+    #errors
+      %p
+        = pluralize(@sponsor.errors.count, "error")
+        prohibited this sponsor from being saved:
+      %ul
+        - @sponsor.errors.full_messages.each do |message|
+          %li= message
+  .panel-body
+    = f.input :name, input_html: { class: 'form-control' }
+    = f.input :employees, input_html: { class: 'form-control' }
+    = f.input :incumbent, input_html: { class: 'form-control' }
+    = f.input :renewal, input_html: { class: 'form-control' }
+    = f.input :disposition_id, input_html: { class: 'form-control' }
+
+    .row
+      .col-md-12
+        %h3 Locations
+        #tasks
+          = f.simple_fields_for :sponsormatches do |sponsormatch|
+            = render 'sponsormatch_fields', f: sponsormatch
+          .links
+            = link_to_add_association 'Add Sponsor', f, :sponsormatches, class: "btn btn-default add-button"        
+
+
+    .row
+      .col-md-6
+        %h3 Tasks
+        #tasks
+          .row
+            .col-xs-8
+              %h4 Task Title
+            .col-xs-2
+              %h4 User
+            = f.simple_fields_for :tasks do |task|
+              = render 'task_fields', f: task
+            .links
+              = link_to_add_association 'Add Task', f, :tasks, class: "btn btn-default add-button"
+
+  = f.button :submit, class: "btn btn-primary"

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  employees: 1
+  incumbent: MyString
+  renewal: 2017-08-01
+  disposition_id: 1
+
+two:
+  name: MyString
+  employees: 1
+  incumbent: MyString
+  renewal: 2017-08-01
+  disposition_id: 1

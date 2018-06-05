@@ -1,0 +1,47 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @sponsor.name
+%p
+  %strong Employees:
+  = @sponsor.employees
+%p
+  %strong Incumbent:
+  = @sponsor.incumbent
+%p
+  %strong Renewal:
+  = @sponsor.renewal
+%p
+  %strong Disposition:
+  = @sponsor.disposition_id
+
+
+%h2 Providers
+#provider_tasks.row
+  .col-md-12
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Name
+          %th Owner
+          %th Priority
+          %th{:colspan => "3"}
+
+      %tbody
+        - @sponsor.sponsormatches.each do |sponsormatch|
+          %tr
+            %td= sponsormatch.sponsor_id
+            %td= sponsormatch.provider_id
+            %td= sponsormatch.employees
+
+.row
+  .col-md-12
+    = link_to "Add Task", new_sponsor_task_path(@sponsor), class: "btn btn-default"
+    = link_to 'Edit', edit_sponsor_path(@sponsor), class: "btn btn-default"
+    = link_to 'Back', root_path, class: "btn btn-default"
+    = link_to 'Destroy', @sponsor, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
+
+
+
+
+
