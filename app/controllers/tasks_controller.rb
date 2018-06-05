@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   before_action :authenticate_user!   
 
   def index
-    @tasks = Task.all
+    @tasks = Task.where(user_id: current_user, disposition_id: 1)
   end
 
   def show
